@@ -13,7 +13,7 @@ export default function ImageUploadForm() {
     e.preventDefault();
     const form = e.currentTarget;
     const fileInput = Array.from(form.elements).find(
-      ({ name }) => name === "file"
+      ({ name }) =>name === "file"
     );
     const formData = new FormData();
 
@@ -37,10 +37,11 @@ export default function ImageUploadForm() {
     console.log(setImg);
   };
 
+
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input type="file" name="file" />
+        <input type="file" name="file" multiple />
 
         {Loading && `wait, please...`}
         <button type="submit">Upload</button>
