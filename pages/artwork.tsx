@@ -1,20 +1,27 @@
-import Access from "@/components/signIn";
-import Logout from "@/components/signOut";
-import { useSession } from "next-auth/react";
-import ImageCard from "../components/imageUploafForm";
+import { useSession,signOut } from "next-auth/react";
+import ImageCard from "../components/imageUploadForm";
 import ImageDisplay from "@/components/ImageDisplay";
 import Home from ".";
+import Link from 'next/link'
 
 export default function Artwork({ images }: any) {
   const { data: session } = useSession();
   console.log('images',images)
 
   return session ? (
-    <>
-      <Logout />
+    <div className="imagedisplay">
+      <div className='signOut'>
+      <ul className='home-navigation_links'>
+       <li> <Link href='/' legacyBehavior>Home</Link></li>
+        <li><Link href='/artwork' legacyBehavior><a id='artwork'>artwork</a></Link></li>
+        <li><Link href='/music' legacyBehavior><a id='music'>music</a></Link></li>
+      </ul>
+        <h2 className='Artwork_title'>Welcome to our artwork page, where you can discover a wide array of drawings created by talented individuals within our server</h2>
+         <button onClick={(()=> signOut())}> Dive out</button>
+       </div>
       <ImageCard />
       <ImageDisplay images={images}/>
-    </>
+    </div>
   ) : (
     <>
       <Home />
@@ -51,6 +58,5 @@ export async function getStaticProps() {
     },
   };
 }
-
 
 

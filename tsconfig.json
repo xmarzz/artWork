@@ -18,6 +18,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/auth/[...nextauth].ts", "pages/api/upload.tsx", "components/imageUploafForm.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/auth/[...nextauth].ts", "pages/api/upload.tsx", "components/imageUploadForm.tsx", "components/Wavesurfer.js"],
   "exclude": ["node_modules"]
 }

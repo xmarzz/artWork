@@ -1,30 +1,36 @@
-import React, { useState} from 'react'
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
 
-export default function Display(){
+export default function ImageDisplay({ audios }: any) {
+  const urls: string[] = [];
+  const [imageList, setImageList] = useState(audios);
 
-    const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  useEffect(() => {
+    const Length = audios.length;
+    console.log(audios);
 
-    const handleChange=(e: React.ChangeEvent<HTMLInputElement>)=>{
-        if(e.target.files){
-            setSelectedFile(e.target.files[0])
-        }
+    for (let i = 0; i < Length; i++) {
+      urls.push(audios[i].image);
+      console.log(urls);
     }
+  }, [urls]);
 
-    const handleClick=()=>{
-
-    }
-
-
-         return (
-            <>
-            <form>
-                <input type="file" accept="audio/*" onChange={handleChange}/>
-                <button onClick={handleClick}>Upload Audio</button>
-            </form>
-            </>
-         )
+  return (
+    <div className="Audio_display">
+      <div className="Audio_display-container">
+        {audios.map((audio: any, index: any) => (
+          <div key={index} className="Audio_display-card">
+            <audio controls className="Audio_display-audio">
+              <source src={audio.image} type="audio/mp3"/>
+            </audio>
+            <p className="Audio_display-title">{audio.title.substring(6)}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
 }
+
+
 
 
 

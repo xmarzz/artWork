@@ -9,12 +9,12 @@ export default function login(){
           <div className={styles.navbar_inside}>
             <Link href='#' className={styles.navbar_home}>Home</Link>
             <Link href='/artwork' className={styles.navbar_artwork}>artwork</Link>
-            <Link href='/musical' className={styles.navbar_musical}>musical</Link>
-            
-          </div>
-
-          
+            <Link href='/musical' className={styles.navbar_musical}>musical</Link>     
+          </div>  
         </nav>
         </div>
     )
 }
+
+
+
